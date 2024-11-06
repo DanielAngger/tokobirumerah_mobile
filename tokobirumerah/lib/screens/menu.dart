@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tokobirumerah/widgets/pesanan_card.dart';
+import 'package:tokobirumerah/widgets/left_drawer.dart';
 
 class MyHomePage extends StatelessWidget {
   final String npm = '2306275973'; // NPM
@@ -25,33 +27,34 @@ class MyHomePage extends StatelessWidget {
               TextSpan(
                 text: 'Toko ',
                 style: TextStyle(
-                  color: Colors.black, // White for "Toko"
-                  fontWeight: FontWeight.w900, // Make text bold
-                  fontSize: 24, // Set text size (e.g., 24)
+                  color: Colors.black,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 24,
                 ),
               ),
               TextSpan(
                 text: 'Biru ',
                 style: TextStyle(
-                  color: Colors.red, // Red for "Biru"
-                  fontWeight: FontWeight.w900, // Make text bold
-                  fontSize: 24, // Set text size
+                  color: Colors.red,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 24,
                 ),
               ),
               TextSpan(
                 text: 'Merah',
                 style: TextStyle(
-                  color: Colors.blue, // Blue for "Merah"
-                  fontWeight: FontWeight.w900, // Make text bold
-                  fontSize: 24, // Set text size
+                  color: Colors.blue,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 24,
                 ),
               ),
             ],
           ),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
-
+      drawer: const LeftDrawer(),
 
       // Body halaman dengan padding di sekelilingnya.
       body: Padding(
@@ -114,69 +117,6 @@ class MyHomePage extends StatelessWidget {
       ),
     );
   }
-}
-
-
-class ItemHomepage {
-    final String name;
-    final IconData icon;
-    final Color color;
-
-    ItemHomepage(this.name, this.icon, this.color);
-}
-
-class ItemCard extends StatelessWidget {
-  // Menampilkan kartu dengan ikon dan nama.
-
-  final ItemHomepage item; 
-  
-  const ItemCard(this.item, {super.key}); 
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      // Menentukan warna latar belakang dari tema aplikasi.
-      color: item.color,
-      // Membuat sudut kartu melengkung.
-      borderRadius: BorderRadius.circular(12),
-      
-      child: InkWell(
-        // Aksi ketika kartu ditekan.
-        onTap: () {
-          // Menampilkan pesan SnackBar saat kartu ditekan.
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"))
-            );
-        },
-        // Container untuk menyimpan Icon dan Text
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              // Menyusun ikon dan teks di tengah kartu.
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  item.icon,
-                  color: Colors.black,
-                  size: 30.0,
-                ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.black),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-  
 }
 
 class InfoCard extends StatelessWidget {
