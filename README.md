@@ -57,28 +57,28 @@
 
 2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
    > Pada Flutter, Column dan Row adalah 2 widget yang digunakan untuk mengatur tata letak. Perbedaan dasar pada penggunaan Column dan Row ada pada tata letak yang diatur, kalau Column, mengatur tata letak secara vertikal, sementara Row mengatur tata letak secara horizontal. Contoh implementasi Column adalah :
-   Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-         Text('Contoh 1'),
-         Text('Contoh 2'),
-         Text('Contoh 3'),
-      ],
-   );
-   Pada contoh di atas, "Contoh 1", "Contoh 2", "Contoh 3" disusun secara vertikal pada tengah layar.
+   > Column(
+      > mainAxisAlignment: MainAxisAlignment.center,
+      > crossAxisAlignment: CrossAxisAlignment.start,
+      > children: <Widget>[
+         > Text('Contoh 1'),
+         > Text('Contoh 2'),
+         > Text('Contoh 3'),
+      > ],
+   > );
+   > Pada contoh di atas, "Contoh 1", "Contoh 2", "Contoh 3" disusun secara vertikal pada tengah layar.
 
-   Contoh implementasi Row adalah:
-   Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-         Text('Contoh 1'),
-         Text('Contoh 2'),
-         Text('Contoh 3'),
-      ],
-   );
-   Pada contoh di atas, "Contoh 1", "Contoh 2", "Contoh 3" disusun secara horizontal pada tengah layar.
+   > Contoh implementasi Row adalah:
+   > Row(
+      > mainAxisAlignment: MainAxisAlignment.spaceAround,
+      > crossAxisAlignment: CrossAxisAlignment.center,
+      > children: <Widget>[
+         > Text('Contoh 1'),
+         > Text('Contoh 2'),
+         > Text('Contoh 3'),
+      > ],
+   > );
+   > Pada contoh di atas, "Contoh 1", "Contoh 2", "Contoh 3" disusun secara horizontal pada tengah layar.
 
 3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
    > Pada halaman form yang saya buat pada tugas ini, saya menggunakan 2 jenis elemen input, yaitu TextFormField untuk menginput Pesanan, Deskripsi, dan Quantitas, berdasarkan tipe data yang dibutuhkan masing-masing field, dan saya juga menggunakan ElevatedButton sebagai tombol untuk mengirim data dari form. Ada banyak elemen input Flutter lain yang tidak saya gunakan, yaitu:
