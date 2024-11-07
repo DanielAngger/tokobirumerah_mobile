@@ -50,3 +50,45 @@
    > Lalu, buatlah tombol yang berisi Icon.
    > Lalu, integrasikanlah InfoCard dan ItemCard pada MyHomePage.
    > Lalu, lakukanlah add, commit, dan push pada GitHub.
+
+## Tugas 8
+1. Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+   > Pada FLutter, const digunakan untuk menandai objek menjadi compile-time constant, yaitu sebuah objek yang tidak akan berubah saat aplikasi Flutter berjalan. Karena objek ini tidak akan berubah, maka Flutter hanya akan mengalokasikan objek tersebut satu kali, sehingga hal ini menghemat memori dan meningkatkan performa. Seperti deskripsi kegunaannya, kita sebaiknya menggunakan const pada saat menggunakan stateless widget, dan kita sebaiknya tidak menggunakan const pada saat menggunakan stateful widget.
+
+2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+   > Pada Flutter, Column dan Row adalah 2 widget yang digunakan untuk mengatur tata letak. Perbedaan dasar pada penggunaan Column dan Row ada pada tata letak yang diatur, kalau Column, mengatur tata letak secara vertikal, sementara Row mengatur tata letak secara horizontal. Contoh implementasi Column adalah :
+   Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+         Text('Contoh 1'),
+         Text('Contoh 2'),
+         Text('Contoh 3'),
+      ],
+   );
+   Pada contoh di atas, "Contoh 1", "Contoh 2", "Contoh 3" disusun secara vertikal pada tengah layar.
+
+   Contoh implementasi Row adalah:
+   Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+         Text('Contoh 1'),
+         Text('Contoh 2'),
+         Text('Contoh 3'),
+      ],
+   );
+   Pada contoh di atas, "Contoh 1", "Contoh 2", "Contoh 3" disusun secara horizontal pada tengah layar.
+
+3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+   > Pada halaman form yang saya buat pada tugas ini, saya menggunakan 2 jenis elemen input, yaitu TextFormField untuk menginput Pesanan, Deskripsi, dan Quantitas, berdasarkan tipe data yang dibutuhkan masing-masing field, dan saya juga menggunakan ElevatedButton sebagai tombol untuk mengirim data dari form. Ada banyak elemen input Flutter lain yang tidak saya gunakan, yaitu:
+    -. DropdownButtonFormField, yang bisa menyediakan pilihan dalam bentuk dropdown.
+    -. Checkbox dan Switch, yang bisa digunakan untuk input boolean seperti untuk konfirmasi pesanan.
+    -. Slider, yang bisa digunakan untuk memberi nilai dalam rentang tertantu, cocok untuk pemberian rating.
+    -. DatePicker, yang bisa digunakan untuk memilih tanggal.
+
+4. Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+   > Untuk mengatur tema pada aplikasi Flutter secara global, kita bisa menggunakan ThemeData yang bisa diterapkan melalui MaterialApp agar tema pada aplikasi kita bisa konsisten. Ya, saya mengimplementasikan tema pada aplikasi saya, saya tempatkan pada main.dart.
+
+5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+   > Pada aplikasi saya, saya menggunakan left_drawer.dart untuk mengatur navigasi secara keseluruhan, dengan menggunakan method Navigator.pushReplacement(). Bagaimanapun, saya juga menggunakan Navigator.push() pada file pesanan_card.dart. Dengan ini, navigasi bisa lebih teratur.
