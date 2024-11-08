@@ -21,10 +21,13 @@ class _PesananEntryFormPageState extends State<PesananEntryFormPage> {
         title: const Center(
           child: Text(
             'Tambah Pesanan, Yuk!',
+            style: TextStyle(
+                  fontWeight: FontWeight.w900,
+            ),
           ),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Colors.white,
+        foregroundColor: Colors.black,
       ),
       drawer: const LeftDrawer(),
       body: Form(
@@ -147,7 +150,7 @@ class _PesananEntryFormPageState extends State<PesananEntryFormPage> {
                     },
                     child: const Text(
                       "Save",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
