@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tokobirumerah/screens/list_pesananentry.dart';
 import 'package:tokobirumerah/screens/menu.dart';
 import 'package:tokobirumerah/screens/pesananentry_form.dart';
 
@@ -64,6 +65,17 @@ class LeftDrawer extends StatelessWidget {
                 ),
               );
             },
+          ),
+          ListTile(
+              leading: const Icon(Icons.add_reaction_rounded),
+              title: const Text('Daftar Mood'),
+              onTap: () {
+                  // Route menu ke halaman mood
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PesananEntryPage()),
+                  );
+              },
           ),
         ],
       ),
