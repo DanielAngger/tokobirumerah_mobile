@@ -3,6 +3,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:tokobirumerah/models/pesanan_entry.dart';
 import 'package:tokobirumerah/widgets/left_drawer.dart';
 import 'package:provider/provider.dart';
+import 'package:tokobirumerah/screens/detail_pesanan_page.dart';
 
 class PesananEntryPage extends StatefulWidget {
   const PesananEntryPage({super.key});
@@ -56,30 +57,45 @@ class _PesananEntryPageState extends State<PesananEntryPage> {
             } else {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
-                itemBuilder: (_, index) => Container(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Nama: ${snapshot.data![index].fields.pesanan}",
-                        style: const TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
+                itemBuilder: (_, index) => InkWell(
+                  onTap: () {
+                    // Navigasi ke halaman detail
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPesananPage(
+                          pesanan: snapshot.data![index],
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      Text("Deskripsi: ${snapshot.data![index].fields.keterangan}"),
-                      const SizedBox(height: 10),
-                      Text("Quantitas: ${snapshot.data![index].fields.quantitas}"),
-                      const SizedBox(height: 10),
-                      Text("Harga: Rp. 20.000"),
-                      const SizedBox(height: 10),
-                      Text("${snapshot.data![index].fields.time}"),
-                    ],
+                    );
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.all(20.0),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Nama: ${snapshot.data![index].fields.pesanan}",
+                          style: const TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text("Deskripsi: ${snapshot.data![index].fields.keterangan}"),
+                        const SizedBox(height: 10),
+                        Text("Quantitas: ${snapshot.data![index].fields.quantitas}"),
+                        const SizedBox(height: 10),
+                        Text("Harga: Rp. 20.000"),
+                        const SizedBox(height: 10),
+                        Text("${snapshot.data![index].fields.time}"),
+                      ],
+                    ),
                   ),
                 ),
               );

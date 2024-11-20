@@ -92,3 +92,26 @@
 
 5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
    > Pada aplikasi saya, saya menggunakan left_drawer.dart untuk mengatur navigasi secara keseluruhan, dengan menggunakan method Navigator.pushReplacement(). Bagaimanapun, saya juga menggunakan Navigator.push() pada file pesanan_card.dart. Dengan ini, navigasi bisa lebih teratur.
+
+## Tugas 9
+1. Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?
+   > Membuat model untuk pengambilan atau pengiriman dat JSON menjadi penting karena JSON memiliki struktur data yang konsisten dan kompleks, sehingga kita bisa merepresentasikan data secara eksplisit dalam bentuk objek Dart. Lalu, JSON juga memudahkan parsing dan manipluasi, sehingga proses serialisasi dan deserialisasi lebih mudah. Tetapi jika kita tidak membuat model untuk pengambilan atau pengiriman data JSON, sebenarnya tidak selalu akan terjadi error, tetapi ada beberapa resiko yang dihadapi, contohnya adalah kesalahan tipe data.
+
+2. Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini
+   > Singkatnya, fungsi dari library HTTP adalah untuk berinteraksi dengan API. Pada tugas ini, HTTP digunakan untuk mendapatkan data dari server maupun mengirim data dari server. Jadi, HTTP digunakan untuk data JSON dari server Django, memprosesnay, dan menampilkannya pada aplikasi Flutter.
+
+3. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+   > CookieRequest berfungsi untuk menangani otentikasi dan pengelolaan sesi dalam sebuah aplikasi Flutter. Library ini seringkali digunakan bila kita ingin mengintegrasikan Flutter dan Django. Instance dari sebuah CookieRequest perlu dibagikan ke semua komponen, hal ini karena untuk memastikan konsistensi otentikasi, dan memudahkan akses data dalam sebuah apliakasi. Dengan membagikan instance-nya, maka itu membuat pengelolaan cookie dan sesi jadi terpusat.
+
+4. Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
+   > Proses pengiriman data dari input bisa didefinikan melalui langkah-langkah berikut. Pertama, pengguna akan menginput data melalui antarmuka. Lalu, setelah pengguna menginput data, maka aplikasi akan mengirim data tersebut ke server (backend) menggunakan library HTTP. Lalu, data akan diproses di backend (dalam tugas ini Django). Lalu, data akan disimpan di database, Lalu, data akan diambil dari database dengan sebuah method GET. Lalu, data yang diambil (berupa JSON) akan dideserialisasi menjadi objek Dart. Setelah itu, terakhir tinggal menampilkannya ke dalam antar muka.
+
+5. Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+   > Otentikasi pada proses register bisa didefinisikan sebagai langkah-langkah berikut. Pertama, proses pada Flutter akan menginput data dari pengguna, dan setelahnya akan dikirim ke endpoint Django menggunakan HTTP POST dalam format JSON. Di Django, data akan diterima dan divalidasi, bila validasi berhasil, maka akun akan terbuat, dan Django akan mengirim respon sukses ke Flutter. Lalu, pada Flutter, akan ditunjukkan pesan sukses atau gagal dan akan mengarahkan pengguna ke halaman login, bila gagal, akan ditambilkan respon error.
+   
+   > Otentikasi pada proses login bisa didefinisikan sebagai langkah-langkah berikut. Pertama, Flutter akan menginput data pengguna dan akan dikirim ke server (Django). Lalu, pada DJango, akan melakukan proses otentikasi dengan "authenticate" untuk memvalidasi input. Bila otentikasi berhasil, maka Django akan membuat sesi dan menyimpan cookie otentikasi dan detail pengguna. Pada Flutter, cookie akan disimpan oleh CookieRequest berdasarkan respon Django, dan menavigasi pengguna ke halaman utama.
+
+   > Otentikasi pada proses logout bisa didefinisikan sebagai langkah-langkah berikut. Pertama, Flutter akan mengirim permintaan logout ke Django. Lalu, Django akan menghapus sesi dan cookie pengguna dan mengirimkan respon sukses. Lalu pada Flutter, cookie akan dihapus oleh CookieRequest dan menavigasi kembali ke halaman login.
+
+6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+   > Pertama, integrasikanlah projek Django yang sudah dibuat sebelumnya pada paruh pertama server dengan projek Flutter yang sekarang sedang dikembangkan, pada tugas kali ini adalah sistem otentikasi. Lalu, buatlah sebuah model yang menyesuaikan data JSON, pada tugas ini dipermudah dengan website Quicktype. Lalu, buatlah sebuah mekanisme untuk melakukan fetch data dari Django untuk Flutter. Lalu, integrasikan juga formulir Flutter dengan layanan Django. Sisanya adalah mengkonfigurasikan fitur register, login, dan logout pada Flutter dengan memanfaatkan langkah-langkah yang sudah dilakukan sebelumnya.
